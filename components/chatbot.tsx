@@ -60,18 +60,18 @@ export default function Chatbot() {
       {!isOpen && (
         <button
           onClick={() => setIsOpen(true)}
-          className="fixed bottom-6 right-6 p-4 bg-primary text-primary-foreground rounded-full shadow-lg hover:opacity-90 transition z-40"
+          className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 p-3 sm:p-4 bg-primary text-primary-foreground rounded-full shadow-lg hover:opacity-90 transition z-40"
           aria-label="Open chat"
         >
-          <MessageCircle className="w-6 h-6" />
+          <MessageCircle className="w-5 h-5 sm:w-6 sm:h-6" />
         </button>
       )}
 
       {/* Chat Window */}
       {isOpen && (
-        <div className="fixed bottom-6 right-6 w-96 max-h-[600px] bg-background rounded-2xl shadow-2xl border border-muted flex flex-col z-50">
+        <div className="fixed bottom-0 right-0 sm:bottom-6 sm:right-6 w-full sm:w-96 h-[100vh] sm:h-auto sm:max-h-[600px] bg-background rounded-none sm:rounded-2xl shadow-2xl border-t sm:border border-muted flex flex-col z-50">
           {/* Header */}
-          <div className="flex items-center justify-between p-4 border-b border-muted bg-primary text-primary-foreground rounded-t-2xl">
+          <div className="flex items-center justify-between p-4 border-b border-muted bg-primary text-primary-foreground rounded-none sm:rounded-t-2xl">
             <div className="flex items-center gap-2">
               <MessageCircle className="w-5 h-5" />
               <span className="font-semibold">Alyara Assistant</span>
@@ -90,13 +90,13 @@ export default function Chatbot() {
             {messages.map((msg, idx) => (
               <div key={idx} className={`flex ${msg.role === "user" ? "justify-end" : "justify-start"}`}>
                 <div
-                  className={`max-w-xs px-4 py-2 rounded-lg ${
+                  className={`max-w-[85%] sm:max-w-xs px-4 py-2 rounded-lg ${
                     msg.role === "user"
                       ? "bg-primary text-primary-foreground rounded-br-none"
                       : "bg-muted text-foreground rounded-bl-none"
                   }`}
                 >
-                  <p className="text-sm">{msg.content}</p>
+                  <p className="text-sm break-words">{msg.content}</p>
                 </div>
               </div>
             ))}
@@ -115,7 +115,7 @@ export default function Chatbot() {
           </div>
 
           {/* Input */}
-          <form onSubmit={handleSendMessage} className="border-t border-muted p-4 flex gap-2">
+          <form onSubmit={handleSendMessage} className="border-t border-muted p-3 sm:p-4 flex gap-2">
             <input
               type="text"
               value={input}

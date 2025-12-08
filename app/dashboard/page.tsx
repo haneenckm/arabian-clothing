@@ -125,10 +125,13 @@ export default function DashboardPage() {
                 </div>
               </div>
 
-              <button className="w-full py-3 bg-primary text-primary-foreground rounded-lg font-semibold hover:opacity-90 transition flex items-center justify-center gap-2 mb-3">
+              <Link
+                href="/checkout"
+                className="w-full py-3 bg-primary text-primary-foreground rounded-lg font-semibold hover:opacity-90 transition flex items-center justify-center gap-2 mb-3"
+              >
                 <CreditCard className="w-5 h-5" />
                 Proceed to Checkout
-              </button>
+              </Link>
 
               <Link
                 href="/shop"

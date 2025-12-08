@@ -1,30 +1,42 @@
-# New Chat
+# Alyara - Premium Arabian Clothing
 
-*Automatically synced with your [v0.app](https://v0.app) deployments*
+A modern e-commerce platform for authentic Arabian thobs, luxurious accessories, and traditional craftsmanship.
 
-[![Deployed on Vercel](https://img.shields.io/badge/Deployed%20on-Vercel-black?style=for-the-badge&logo=vercel)](https://vercel.com/haneenckm03-6460s-projects/v0-new-chat)
-[![Built with v0](https://img.shields.io/badge/Built%20with-v0.app-black?style=for-the-badge)](https://v0.app/chat/ghZq8w0puyb)
+## Features
 
-## Overview
+- Browse premium Arabian clothing collections
+- Interactive product gallery with filtering
+- Shopping cart functionality
+- AI-powered chatbot for customer support
+- Responsive design with dark mode support
+- User dashboard for order management
 
-This repository will stay in sync with your deployed chats on [v0.app](https://v0.app).
-Any changes you make to your deployed app will be automatically pushed to this repository from [v0.app](https://v0.app).
+## Tech Stack
 
-## Deployment
+- Next.js 16
+- React 19
+- TypeScript
+- Tailwind CSS
+- Radix UI Components
+- Google Generative AI
 
-Your project is live at:
+## Getting Started
 
-**[https://vercel.com/haneenckm03-6460s-projects/v0-new-chat](https://vercel.com/haneenckm03-6460s-projects/v0-new-chat)**
+Install dependencies:
+```bash
+npm install
+```
 
-## Build your app
+Run the development server:
+```bash
+npm run dev
+```
 
-Continue building your app on:
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-**[https://v0.app/chat/ghZq8w0puyb](https://v0.app/chat/ghZq8w0puyb)**
+## Environment Variables
 
-## How It Works
-
-1. Create and modify your project using [v0.app](https://v0.app)
-2. Deploy your chats from the v0 interface
-3. Changes are automatically pushed to this repository
-4. Vercel deploys the latest version from this repository
+Create a `.env.local` file with:
+```
+GEMINI_API_KEY=your_api_key_here
+```

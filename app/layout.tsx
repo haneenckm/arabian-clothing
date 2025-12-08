@@ -11,7 +11,6 @@ const _lora = Lora({ subsets: ["latin"], weight: ["400", "500", "600"] })
 export const metadata: Metadata = {
   title: "Alyara - Premium Arabian Clothing",
   description: "Discover authentic Arabian thobs, luxurious accessories, and traditional craftsmanship",
-  generator: "v0.app",
   icons: {
     icon: [
       {
