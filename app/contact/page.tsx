@@ -33,7 +33,7 @@ export default function ContactPage() {
 
             <div className="border-l-4 border-secondary pl-6">
               <h3 className="font-serif text-xl font-bold text-primary mb-2">Location</h3>
-              <p className="text-foreground/80">India</p>
+              <p className="text-foreground/80">Malappuram, Kerala, India</p>
             </div>
 
             <div className="border-l-4 border-accent pl-6">

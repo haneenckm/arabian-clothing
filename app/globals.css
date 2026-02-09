@@ -3,6 +3,10 @@
 
 @custom-variant dark (&:is(.dark *));
 
+html {
+  scroll-behavior: smooth;
+}
+
 :root {
   /* Updated to Arabian luxury color palette: deep emerald, burgundy, and silver/platinum instead of gold */
   /* Background - Cream with hint of platinum */
@@ -84,8 +88,8 @@
 }
 
 @theme inline {
-  --font-sans: "Lora", "Geist Fallback";
-  --font-serif: "Playfair Display", "Playfair Fallback";
+  --font-sans: var(--font-sans);
+  --font-serif: var(--font-serif);
   --font-mono: "Geist Mono", "Geist Mono Fallback";
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -129,6 +133,7 @@
   * {
     @apply border-border outline-ring/50;
   }
+
   body {
     @apply bg-background text-foreground;
   }
@@ -141,13 +146,11 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: repeating-linear-gradient(
-      45deg,
-      transparent,
-      transparent 35px,
-      rgba(191, 191, 191, 0.02) 35px,
-      rgba(191, 191, 191, 0.02) 70px
-    );
+    background-image: repeating-linear-gradient(45deg,
+        transparent,
+        transparent 35px,
+        rgba(191, 191, 191, 0.02) 35px,
+        rgba(191, 191, 191, 0.02) 70px);
     pointer-events: none;
     z-index: 0;
   }

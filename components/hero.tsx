@@ -1,5 +1,7 @@
 "use client"
 
+import Link from "next/link"
+
 export default function Hero() {
   return (
     <section className="relative bg-background overflow-hidden pt-8">
@@ -21,12 +23,18 @@ export default function Hero() {
             </div>
 
             <div className="flex gap-4 pt-4">
-              <button className="px-8 py-3 bg-primary text-primary-foreground rounded-lg font-semibold hover:opacity-90 transition font-sans uppercase tracking-wide">
+              <Link
+                href="/shop"
+                className="px-8 py-3 bg-primary text-primary-foreground rounded-lg font-semibold hover:opacity-90 transition font-sans uppercase tracking-wide text-center"
+              >
                 Explore Collection
-              </button>
-              <button className="px-8 py-3 border-2 border-primary text-primary rounded-lg font-semibold hover:bg-primary/5 transition font-sans uppercase tracking-wide">
+              </Link>
+              <Link
+                href="/about"
+                className="px-8 py-3 border-2 border-primary text-primary rounded-lg font-semibold hover:bg-primary/5 transition font-sans uppercase tracking-wide text-center"
+              >
                 Learn More
-              </button>
+              </Link>
             </div>
           </div>
 

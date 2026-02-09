@@ -3,6 +3,7 @@
 import { Heart, ShoppingCart } from "lucide-react"
 import { useState } from "react"
 import { useCart, type Product } from "@/lib/cart-context"
+import Link from "next/link"
 
 const productGroups = {
   clothing: [
@@ -259,9 +260,8 @@ export default function ProductGallery() {
                 className="absolute top-4 right-4 p-2 bg-background/80 backdrop-blur-md rounded-full hover:bg-background transition"
               >
                 <Heart
-                  className={`w-5 h-5 transition ${
-                    favorites.includes(product.id) ? "fill-accent text-accent" : "text-foreground"
-                  }`}
+                  className={`w-5 h-5 transition ${favorites.includes(product.id) ? "fill-accent text-accent" : "text-foreground"
+                    }`}
                 />
               </button>
               <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-background/80 to-transparent p-4 opacity-0 group-hover:opacity-100 transition">
@@ -321,9 +321,12 @@ export default function ProductGallery() {
         <ProductGroupSection title="Caps" products={productGroups.caps} />
 
         <div className="text-center mt-12">
-          <button className="px-8 py-3 bg-primary text-primary-foreground rounded-lg font-semibold hover:opacity-90 transition font-sans">
+          <Link
+            href="/shop"
+            className="inline-block px-10 py-4 bg-primary text-primary-foreground rounded-xl font-bold hover:opacity-90 transition shadow-lg uppercase tracking-wider text-sm"
+          >
             View All Products
-          </button>
+          </Link>
         </div>
       </div>
     </section>

@@ -5,8 +5,8 @@ import { Analytics } from "@vercel/analytics/next"
 import { CartProvider } from "@/lib/cart-context"
 import "./globals.css"
 
-const _playfair = Playfair_Display({ subsets: ["latin"], weight: ["400", "500", "600", "700"] })
-const _lora = Lora({ subsets: ["latin"], weight: ["400", "500", "600"] })
+const _playfair = Playfair_Display({ subsets: ["latin"], weight: ["400", "500", "600", "700"], variable: "--font-serif" })
+const _lora = Lora({ subsets: ["latin"], weight: ["400", "500", "600"], variable: "--font-sans" })
 
 export const metadata: Metadata = {
   title: "Alyara - Premium Arabian Clothing",
@@ -36,8 +36,8 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
-      <body className={`font-sans antialiased`}>
+    <html lang="en" suppressHydrationWarning>
+      <body className={`${_lora.variable} ${_playfair.variable} font-sans antialiased`}>
         <CartProvider>
           {children}
         </CartProvider>

@@ -1,10 +1,12 @@
 "use client"
 
 import { Sparkles, Fingerprint, Crown } from "lucide-react"
+import Link from "next/link"
 
 const categories = [
   {
     name: "Thobs",
+    slug: "thobs",
     description: "Traditional robes with contemporary elegance",
     icon: Sparkles,
     color: "from-primary to-primary/60",
@@ -12,6 +14,7 @@ const categories = [
   },
   {
     name: "Bracelets",
+    slug: "bracelets",
     description: "Handcrafted silver and traditional designs",
     icon: Fingerprint,
     color: "from-accent to-accent/60",
@@ -19,6 +22,7 @@ const categories = [
   },
   {
     name: "Accessories",
+    slug: "accessories",
     description: "Caps, rings, and ornate embellishments",
     icon: Crown,
     color: "from-secondary to-secondary/60",
@@ -41,7 +45,11 @@ export default function CategoryShowcase() {
           {categories.map((category) => {
             const Icon = category.icon
             return (
-              <div key={category.name} className="group cursor-pointer">
+              <Link
+                key={category.name}
+                href={`/collections/${category.slug}`}
+                className="group cursor-pointer block"
+              >
                 <div className="relative overflow-hidden rounded-2xl mb-6 h-64 md:h-72">
                   <div
                     className={`absolute inset-0 bg-gradient-to-br ${category.color} opacity-0 group-hover:opacity-20 transition duration-300 z-10`}
@@ -55,14 +63,14 @@ export default function CategoryShowcase() {
                 <div className="space-y-2">
                   <div className="flex items-center gap-3">
                     <Icon className="w-6 h-6 text-primary" />
-                    <h3 className="font-serif text-2xl font-semibold text-foreground">{category.name}</h3>
+                    <h3 className="font-serif text-2xl font-semibold text-foreground group-hover:text-primary transition-colors">{category.name}</h3>
                   </div>
                   <p className="text-foreground/60 font-sans">{category.description}</p>
-                  <button className="pt-2 text-primary font-semibold text-sm hover:text-primary/80 transition font-sans">
+                  <span className="inline-block pt-2 text-primary font-semibold text-sm group-hover:underline transition font-sans">
                     Shop {category.name} →
-                  </button>
+                  </span>
                 </div>
-              </div>
+              </Link>
             )
           })}
         </div>

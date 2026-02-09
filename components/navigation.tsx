@@ -9,6 +9,13 @@ export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false)
   const { getCartCount } = useCart()
 
+  const navLinks = [
+    { name: "Shop", href: "/shop" },
+    { name: "About", href: "/about" },
+    { name: "Collections", href: "/collections" },
+    { name: "Contact", href: "/contact" },
+  ]
+
   return (
     <nav className="sticky top-0 z-50 bg-background border-b-2 border-secondary/20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -21,30 +28,15 @@ export default function Navigation() {
 
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center gap-8">
-            <a
-              href="/shop"
-              className="text-foreground hover:text-primary transition font-sans text-sm uppercase tracking-wide"
-            >
-              Shop
-            </a>
-            <a
-              href="/about"
-              className="text-foreground hover:text-primary transition font-sans text-sm uppercase tracking-wide"
-            >
-              About
-            </a>
-            <a
-              href="/collections"
-              className="text-foreground hover:text-primary transition font-sans text-sm uppercase tracking-wide"
-            >
-              Collections
-            </a>
-            <a
-              href="/contact"
-              className="text-foreground hover:text-primary transition font-sans text-sm uppercase tracking-wide"
-            >
-              Contact
-            </a>
+            {navLinks.map((link) => (
+              <Link
+                key={link.name}
+                href={link.href}
+                className="text-foreground hover:text-primary transition font-sans text-sm uppercase tracking-wide"
+              >
+                {link.name}
+              </Link>
+            ))}
           </div>
 
           {/* Right Icons */}
@@ -55,12 +47,12 @@ export default function Navigation() {
             <Link href="/dashboard" className="p-2 hover:bg-secondary/10 rounded-lg transition relative">
               <ShoppingCart className="w-5 h-5 text-foreground" />
               {getCartCount() > 0 && (
-                <span className="absolute -top-1 -right-1 w-5 h-5 bg-accent text-accent-foreground text-xs rounded-full flex items-center justify-center font-semibold">
+                <span className="absolute -top-1 -right-1 w-5 h-5 bg-accent text-accent-foreground text-xs rounded-full flex items-center justify-center font-semibold text-[10px]">
                   {getCartCount()}
                 </span>
               )}
             </Link>
-            <button onClick={() => setIsOpen(!isOpen)} className="md:hidden p-2">
+            <button onClick={() => setIsOpen(!isOpen)} className="md:hidden p-2 text-foreground">
               {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
           </div>
@@ -68,31 +60,17 @@ export default function Navigation() {
 
         {/* Mobile Menu */}
         {isOpen && (
-          <div className="md:hidden pb-4 border-t border-secondary/20">
-            <a
-              href="/shop"
-              className="block px-2 py-2 text-foreground hover:text-primary font-sans text-sm uppercase tracking-wide"
-            >
-              Shop
-            </a>
-            <a
-              href="/about"
-              className="block px-2 py-2 text-foreground hover:text-primary font-sans text-sm uppercase tracking-wide"
-            >
-              About
-            </a>
-            <a
-              href="/collections"
-              className="block px-2 py-2 text-foreground hover:text-primary font-sans text-sm uppercase tracking-wide"
-            >
-              Collections
-            </a>
-            <a
-              href="/contact"
-              className="block px-2 py-2 text-foreground hover:text-primary font-sans text-sm uppercase tracking-wide"
-            >
-              Contact
-            </a>
+          <div className="md:hidden pb-4 border-t border-secondary/20 bg-background">
+            {navLinks.map((link) => (
+              <Link
+                key={link.name}
+                href={link.href}
+                onClick={() => setIsOpen(false)}
+                className="block px-2 py-3 text-foreground hover:text-primary font-sans text-sm uppercase tracking-wide border-b border-secondary/5 last:border-0"
+              >
+                {link.name}
+              </Link>
+            ))}
           </div>
         )}
       </div>
